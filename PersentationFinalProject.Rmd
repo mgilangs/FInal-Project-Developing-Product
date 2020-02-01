@@ -1,0 +1,42 @@
+---
+title: "Coursera - Persentation Developing Data Products"
+author: "Mochamad Gilang Saputra"
+date: "January 31, 2020"
+output: ioslides_presentation
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Introduction
+This map will take you to search for the country you are looking for
+
+## How It Works
+- The application is written in Shiny which is a web application framework for R
+- The source code consists of two files: **server.R** and **ui.R**
+- **server.R** includes the the server logic of a Shiny web application
+- **ui.R** includes the the user-interface definition, which uses the sidebarLayout template
+- The application leverages the **maps** and **mapdata** libraries for displaying the map
+- The application is hosted on Rstudio's shiny server in the cloud (Shinyapps.io)
+
+## Documentation
+- Maps in R
+  
+```{r}
+library(maps)
+library(mapdata)
+library(ggplot2)
+states <- map_data("world2")
+
+ggplot(data = states) + 
+  geom_polygon(aes(x = long, y = lat, fill = region, group = group), color = "white") + 
+  coord_fixed(1.3) +
+  guides(fill=FALSE)  # do this to leave off the color legend
+```
+
+
+## Link
+- Application URL: https://mgilangs.shinyapps.io/finalproject_developing_data_products/
+- Github Repository URL: https://github.com/mgilangs/FInal-Project-Developing-Product
